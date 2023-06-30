@@ -18,18 +18,6 @@ class entidad{
         this.imagen = imagen;
     }
 }
-function randomInc(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-while (arrayX.length < 7){
-    let random = randomInc(1,7);
-    if(!arrayX.includes(random)){
-        arrayX.push(random);
-    }
-    console.log(arrayX)
-}
 //funciones para atacar
     function atacar1(){
         bloque1.vida -= 1
@@ -258,6 +246,18 @@ while (arrayX.length < 7){
         }
     }
 //Esto es para crear los bloques aleatoriamente, perdón por el choclazo de texto, pero las otras formas de escribirlo (un "for", por ejemplo) resultaban en una iteración infinita y se trababa todo
+    function randomInc(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    while (arrayX.length < 7){
+        let random = randomInc(1,7);
+        if(!arrayX.includes(random)){
+            arrayX.push(random);
+        }
+        console.log(arrayX)
+    }
     let bloque1 = new entidad(1, 50, arrayX[0], 7, "tierra.jpg")
     let tierra1 = document.getElementById('t1');
     t1.style.display = "flex";
