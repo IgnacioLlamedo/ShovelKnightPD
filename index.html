@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <img src="img/fondo.jpg" alt="" class="imgFondo" id="tileset">
+    <div  id="personaje"><img src="img/shovel_knightR.png" alt="" class="img"></div>
+    <div id="bloques">
+      <img src="img/piedra.jpg" alt="" class="img" id="p1">
+      <img src="img/piedra.jpg" alt="" class="img" id="p2">
+      <img src="img/piedra.jpg" alt="" class="img" id="p3">
+      <img src="img/tierra.jpg" alt="" class="img" id="t4">
+      <img src="img/tierra.jpg" alt="" class="img" id="t2">
+      <img src="img/tierra.jpg" alt="" class="img" id="t3">
+      <img src="img/tierra.jpg" alt="" class="img" id="t1">
+    </div>
+  </main>
+  <section class="explicacion">
+    <h1>Explicación</h1>
+    <p>Las flechas mueven al personaje,
+      al mover al personaje contra un bloque, este recibira 1 punto de daño, los bloques de tierra (amarillo) solo tienen 1 punto de vida, mientras que los de piedra (gris) tienen 3.
+    </p>
+    <a href="index.html"><img src="img/Basic_Elements_(143).jpg" alt="" class="img"></a>
+    <p id="puntos">Puntos: <span></span></p>
+  </section>
+  <section class="pad">
+    <div class="div1">
+      <button onclick="u()"><img src="img/up.jpg" alt=""></button>
+    </div>
+    <div class="div2">
+      <button onclick="l()"><img src="img/left.jpg" alt=""></button>
+      <img src="img/center.jpg" alt="">
+      <button onclick="r()"><img src="img/right.jpg" alt=""></button>
+    </div>
+    <div class="div3">
+      <button onclick="d()"><img src="img/down.jpg" alt=""></button>
+    </div>
+  </section>
+  <script src="app.js"></script>
+</body>
+</html>

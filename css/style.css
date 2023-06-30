@@ -1,0 +1,93 @@
+main{
+    grid-area: main;
+    margin-left: 10%;
+}
+#tileset{
+    position: absolute; 
+    left: 135px;
+}
+#personaje{
+    position: absolute; 
+    top: 90px; 
+    left: 195px
+}
+#destruido{
+    display: none;
+}
+.explicacion{
+    grid-area: reglas;
+    text-align: center;
+    margin-top: 100px;
+}
+.pad{
+    grid-area: pad;
+    margin-left: 30%;
+    margin-top: 100px
+}
+body{
+    display: grid;
+    grid-template-areas: 
+    "main reglas"
+    "main pad";
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 300px
+}
+.img{
+    width: 60px;
+}
+.imgFondo{
+    width: 549px;
+}
+button{
+    border: 0;
+}
+.div1{
+    margin-left: 50px;
+    margin-bottom: 4px;
+}
+.div3{
+    margin-left: 50px;
+    margin-top: 4px;
+}
+#t1{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#t2{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#t3{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#t4{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#p1{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#p2{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}   
+#p3{
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+}
