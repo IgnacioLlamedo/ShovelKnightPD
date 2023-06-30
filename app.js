@@ -9,7 +9,7 @@ let puntos = 0;
 const puntosDiv = document.querySelector('#puntos span');
 puntosDiv.innerText = puntos;
 const girarPersonaje = document.querySelector('#personaje');
-class entidad{
+class Entidad{
     constructor(vida, puntos, x, y, imagen){
         this.vida = vida;
         this.puntos = puntos;
