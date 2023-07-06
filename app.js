@@ -5,9 +5,7 @@ let posV = 90;
 let posH = 195;
 let tileY = 1;
 let tileX = 1;
-let puntos = 0;
-const puntosDiv = document.querySelector('#puntos span');
-puntosDiv.innerText = puntos;
+let mejorar = document.getElementById("mejorar");
 const girarPersonaje = document.querySelector('#personaje');
 class Entidad{
     constructor(vida, puntos, x, y, imagen){
@@ -18,79 +16,142 @@ class Entidad{
         this.imagen = imagen;
     }
 }
+//Puntos en el storage
+    let puntos = Number;
+    let puntosJSON = JSON.stringify(localStorage.getItem("puntos"));
+    if (puntosJSON === "null"){
+        Number(puntos = 0)
+    }
+    else {
+        Number(puntos = JSON.parse(localStorage.getItem("puntos")))
+    }
+    const puntosDiv = document.querySelector('#puntos span');
+    puntosDiv.innerText = puntos;
+//Mejora en el storage
+    let palaMejorada = false
+    let mejoraJSON = localStorage.getItem("palaMejorada");
+    if (mejoraJSON === "true"){
+        mejorar.remove();
+        palaMejorada = true
+    }
+    else{
+        palaMejorada = false
+    }
 //funciones para atacar
     function atacar1(){
-        bloque1.vida -= 1
+        if(palaMejorada === true){
+            bloque1.vida -= 3;
+        }
+        else{
+            bloque1.vida -= 1;
+        }
         if(bloque1.vida <= 0){
             let destruir = document.getElementById('t1');
             destruir.remove();
-            puntos = puntos + parseInt(50, 10);
+            puntos = puntos + 50;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque1.y = -1;
             bloque1.x = -1;
         }
     }
     function atacar2(){
-        bloque2.vida -= 1
+        if(palaMejorada === true){
+            bloque2.vida -= 3;
+        }
+        else{
+            bloque2.vida -= 1;
+        }
         if(bloque2.vida <= 0){
             let destruir = document.getElementById('t2');
             destruir.remove();
-            puntos = puntos + parseInt(50, 10);
+            puntos = puntos + 50;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque2.y = -1;
             bloque2.x = -1;
         }
     }
     function atacar3(){
-        bloque3.vida -= 1
+        if(palaMejorada === true){
+            bloque3.vida -= 3;
+        }
+        else{
+            bloque3.vida -= 1;
+        }
         if(bloque3.vida <= 0){
             let destruir = document.getElementById('t3');
             destruir.remove();
-            puntos = puntos + parseInt(50, 10);
+            puntos = puntos + 50;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque3.y = -1;
             bloque3.x = -1;
         }
     }
     function atacar4(){
-        bloque4.vida -= 1
+        if(palaMejorada === true){
+            bloque4.vida -= 3;
+        }
+        else{
+            bloque4.vida -= 1;
+        }
         if(bloque4.vida <= 0){
             let destruir = document.getElementById('t4');
             destruir.remove();
-            puntos = puntos + parseInt(50, 10);
+            puntos = puntos + 50;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque4.y = -1;
             bloque4.x = -1;
         }
     }
     function atacar5(){
-        bloque5.vida -= 1
+        if(palaMejorada === true){
+            bloque5.vida -= 3;
+        }
+        else{
+            bloque5.vida -= 1;
+        }
         if(bloque5.vida <= 0){
             let destruir = document.getElementById('p1');
             destruir.remove();
-            puntos = puntos + parseInt(100, 10);
+            puntos = puntos + 100;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque5.y = -1;
             bloque5.x = -1;
         }
     }
     function atacar6(){
-        bloque6.vida -= 1
+        if(palaMejorada === true){
+            bloque6.vida -= 3;
+        }
+        else{
+            bloque6.vida -= 1;
+        }
         if(bloque6.vida <= 0){
             let destruir = document.getElementById('p2');
             destruir.remove();
-            puntos = puntos + parseInt(100, 10);
+            puntos = puntos + 100;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque6.y = -1;
             bloque6.x = -1;
         }
     }
     function atacar7(){
-        bloque7.vida -= 1
+        if(palaMejorada === true){
+            bloque7.vida -= 3;
+        }
+        else{
+            bloque7.vida -= 1;
+        }
         if(bloque7.vida <= 0){
             let destruir = document.getElementById('p3');
             destruir.remove();
-            puntos = puntos + parseInt(100, 10);
+            puntos = puntos + 100;
+            localStorage.setItem("puntos", puntos);
             puntosDiv.innerText = puntos;
             bloque7.y = -1;
             bloque7.x = -1;
@@ -258,38 +319,65 @@ class Entidad{
         }
         console.log(arrayX)
     }
-    let bloque1 = new entidad(1, 50, arrayX[0], 7, "tierra.jpg")
+    let bloque1 = new Entidad(1, 50, arrayX[0], 7, "tierra.jpg")
     let tierra1 = document.getElementById('t1');
     t1.style.display = "flex";
     t1.style.left = (bloque1.x * 60) + 135 + "px";
     t1.style.top = (bloque1.y * 60)+ 35 + "px";
-    let bloque2 = new entidad(1, 50, arrayX[1], 7, "tierra.jpg")
+    let bloque2 = new Entidad(1, 50, arrayX[1], 7, "tierra.jpg")
     let tierra2 = document.getElementById('t2');
     t2.style.display = "flex";
     t2.style.left = (bloque2.x * 60) + 135 + "px";
     t2.style.top = (bloque2.y * 60)+ 35 + "px";
-    let bloque3 = new entidad(1, 50, arrayX[2], 7, "tierra.jpg")
+    let bloque3 = new Entidad(1, 50, arrayX[2], 7, "tierra.jpg")
     let tierra3 = document.getElementById('t3');
     t3.style.display = "flex";
     t3.style.left = (bloque3.x * 60) + 135 + "px";
     t3.style.top = (bloque3.y * 60)+ 35 + "px";
-    let bloque4 = new entidad(1, 50, arrayX[3], 7, "tierra.jpg")
+    let bloque4 = new Entidad(1, 50, arrayX[3], 7, "tierra.jpg")
     let tierra4 = document.getElementById('t4');
     t4.style.display = "flex";
     t4.style.left = (bloque4.x * 60) + 135 + "px";
     t4.style.top = (bloque4.y * 60)+ 35 + "px";
-    let bloque5 = new entidad(3, 100, arrayX[4], 7, "piedra.jpg")
+    let bloque5 = new Entidad(3, 100, arrayX[4], 7, "piedra.jpg")
     let piedra1 = document.getElementById('p1');
     p1.style.display = "flex";
     p1.style.left = (bloque5.x * 60) + 135 + "px";
     p1.style.top = (bloque5.y * 60)+ 35 + "px";
-    let bloque6 = new entidad(3, 100, arrayX[5], 7, "piedra.jpg")
+    let bloque6 = new Entidad(3, 100, arrayX[5], 7, "piedra.jpg")
     let piedra2 = document.getElementById('p2');
     p2.style.display = "flex";
     p2.style.left = (bloque6.x * 60) + 135 + "px";
     p2.style.top = (bloque6.y * 60)+ 35 + "px";
-    let bloque7 = new entidad(3, 100, arrayX[6], 7, "piedra.jpg")
+    let bloque7 = new Entidad(3, 100, arrayX[6], 7, "piedra.jpg")
     let piedra3 = document.getElementById('p3');
     p3.style.display = "flex";
     p3.style.left = (bloque7.x * 60) + 135 + "px";
     p3.style.top = (bloque7.y * 60)+ 35 + "px";
+//Evento recargar storage
+    let recargar = document.getElementById("recargar");
+    function reiniciarStorage(){
+        localStorage.clear();
+    }
+    recargar.addEventListener("click", reiniciarStorage);
+//Evento para moverse hacia arriba
+    let btnU = document.getElementById("btnU");
+    btnU.addEventListener("click", u);
+//Evento para moverse hacia abajo
+    let btnD = document.getElementById("btnD");
+    btnD.addEventListener("click", d);
+//Evento para moverse hacia la izquierda
+    let btnL = document.getElementById("btnL");
+    btnL.addEventListener("click", l);
+//Evento para moverse hacia la derecha
+    let btnR = document.getElementById("btnR");
+    btnR.addEventListener("click", r);
+//Evento para mejorar la pala
+    function mejorarPala(){
+        if (puntos >= 600){
+            mejorar.remove();
+            palaMejorada = true;
+            localStorage.setItem("palaMejorada", palaMejorada);
+        }
+    }
+    mejorar.addEventListener("click", mejorarPala);

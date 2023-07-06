@@ -22,7 +22,10 @@ main{
 .pad{
     grid-area: pad;
     margin-left: 30%;
-    margin-top: 100px
+    margin-top: 150px
+}
+a{
+    padding-bottom: 15px;
 }
 body{
     display: grid;
@@ -48,6 +51,11 @@ button{
 .div3{
     margin-left: 50px;
     margin-top: 4px;
+}
+#divBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #t1{
     position: absolute;

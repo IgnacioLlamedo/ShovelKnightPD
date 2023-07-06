@@ -23,22 +23,27 @@
   <section class="explicacion">
     <h1>Explicación</h1>
     <p>Las flechas mueven al personaje,
-      al mover al personaje contra un bloque, este recibira 1 punto de daño, los bloques de tierra (amarillo) solo tienen 1 punto de vida, mientras que los de piedra (gris) tienen 3.
+    al mover al personaje contra un bloque, este recibira 1 punto de daño, los bloques de tierra (amarillo) solo tienen 1 punto de vida, mientras que los de piedra (gris) tienen 3.
+    Mejorar la pala hace que el personaje haga más daño.
     </p>
-    <a href="index.html"><img src="img/Basic_Elements_(143).jpg" alt="" class="img"></a>
+    <div id="divBtn">
+      <a href="index.html"><img src="img/Basic_Elements_(143).jpg" alt="" class="img"></a>
+      <a href="index.html" id="recargar">Reiniciar Storage y Recargar</a>
+      <button id="mejorar">Mejorar Pala (600 puntos)</button>
+    </div>
     <p id="puntos">Puntos: <span></span></p>
   </section>
   <section class="pad">
     <div class="div1">
-      <button onclick="u()"><img src="img/up.jpg" alt=""></button>
+      <button id="btnU"><img src="img/up.jpg"></button>
     </div>
     <div class="div2">
-      <button onclick="l()"><img src="img/left.jpg" alt=""></button>
-      <img src="img/center.jpg" alt="">
-      <button onclick="r()"><img src="img/right.jpg" alt=""></button>
+      <button id="btnL"><img src="img/left.jpg"></button>
+      <img src="img/center.jpg">
+      <button id="btnR"><img src="img/right.jpg"></button>
     </div>
     <div class="div3">
-      <button onclick="d()"><img src="img/down.jpg" alt=""></button>
+      <button id="btnD"><img src="img/down.jpg"></button>
     </div>
   </section>
   <script src="app.js"></script>
