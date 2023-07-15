@@ -57,45 +57,38 @@ button{
     flex-direction: column;
     align-items: center;
 }
-#t1{
+#b0{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
-#t2{
+#b1{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
-#t3{
+#b2{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
-#t4{
+#b3{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
-#p1{
+#b4{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
-#p2{
+#b5{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }   
-#p3{
+#b6{
     position: absolute;
-    display: none;
     top: 0px;
     left: 0px;
 }
