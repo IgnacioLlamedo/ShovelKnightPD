@@ -6,40 +6,27 @@
   <title>Document</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="flechas">
   <main>
-    <img src="img/fondo.jpg" alt="" class="imgFondo" id="tileset">
-    <div  id="personaje"><img src="img/shovel_knightR.png" alt="" class="img"></div>
+    <div id="hud">
+      
+    </div>
+    <p id="puntos">Puntos: <span></span></p>
+      <button id="mejorar">Mejorar Pala (600 puntos)</button>
+      <a href="index.html" id="recargar">Reiniciar Storage y Recargar</a>
+      <a href="index.html" id="f5">Recargar</a>
+    <img src="img/fondo.webp" class="imgFondo" id="tileset">
+    <div  id="personaje"><img src="img/shovel_knightR.webp" class="img"></div>
     <div id="bloques">
     </div>
   </main>
-  <p style="margin-left:500px;" style="margin-left: 500px;">aaaa</p>
-  <section class="explicacion">
-    <h1>Explicación</h1>
-    <p>Las flechas mueven al personaje,
-    al mover al personaje contra un bloque, este recibira 1 punto de daño, los bloques de tierra (amarillo) solo tienen 1 punto de vida, mientras que los de piedra (gris) tienen 3.
-    Mejorar la pala hace que el personaje haga más daño.
-    </p>
-    <div id="divBtn">
-      <a href="index.html"><img src="img/Basic_Elements_(143).jpg" alt="" class="img"></a>
-      <a href="index.html" id="recargar">Reiniciar Storage y Recargar</a>
-      <button id="mejorar">Mejorar Pala (600 puntos)</button>
-    </div>
-    <p id="puntos">Puntos: <span></span></p>
-  </section>
-  <section class="pad">
-    <div class="div1">
-      <button id="btnU"><img src="img/up.jpg"></button>
-    </div>
-    <div class="div2">
-      <button id="btnL"><img src="img/left.jpg"></button>
-      <img src="img/center.jpg">
-      <button id="btnR"><img src="img/right.jpg"></button>
-    </div>
-    <div class="div3">
-      <button id="btnD"><img src="img/down.jpg"></button>
-    </div>
-  </section>
+    <section class="explicacion">
+      <h1>Explicación</h1>
+      <p>Las flechas mueven al personaje,
+      al mover al personaje contra un bloque, este recibira 1 punto de daño, los bloques de tierra (amarillo) solo tienen 1 punto de vida, mientras que los de piedra (gris) tienen 3.
+      Mejorar la pala hace que el personaje haga más daño.
+      </p>
+    </section>
   <script src="app.js"></script>
 </body>
 </html>

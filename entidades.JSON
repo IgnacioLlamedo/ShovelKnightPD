@@ -1,0 +1,47 @@
+[
+    {
+        "vida": 1,
+        "puntos": 50,
+        "x": -1,
+        "y": -1,
+        "imagen": "tierra.webp",
+        "ataque": 0,
+        "id": -1
+    },
+    {
+        "vida": 3,
+        "puntos": 100,
+        "x": -1,
+        "y": -1,
+        "imagen": "piedra.webp",
+        "ataque": 0,
+        "id": -1
+    },
+    {
+        "vida": 3,
+        "puntos": 200,
+        "x": -1,
+        "y": -1,
+        "imagen": "cuca.webp",
+        "ataque": 1,
+        "id": -1
+    },
+    {
+        "vida": 5,
+        "puntos": 500,
+        "x": -1,
+        "y": -1,
+        "imagen": "skelly.webp",
+        "ataque": 2,
+        "id": -1
+    },
+    {
+        "vida": 1,
+        "puntos": 0,
+        "x": -1,
+        "y": -1,
+        "imagen": "pocion.webp",
+        "ataque": -2,
+        "id": -1
+    }
+]

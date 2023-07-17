@@ -4,12 +4,18 @@ main{
 }
 #tileset{
     position: absolute; 
-    left: 135px;
+    left: 300px; 
 }
 #personaje{
     position: absolute; 
     top: 90px; 
-    left: 195px
+    left: 360px
+}
+#hud img{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 300px;
 }
 #destruido{
     display: none;
@@ -32,8 +38,27 @@ body{
     grid-template-areas: 
     "main reglas"
     "main pad";
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 66% 30%;
     grid-template-rows: 300px
+}
+#puntos{
+    position: absolute;
+    top: 410px;
+}
+#mejorar{
+    position: absolute;
+    top: 450px;
+    left: 55px;
+}
+#f5{
+    position: absolute;
+    top: 470px;
+    width: 60px;
+}
+#recargar{
+    position: absolute;
+    top: 490px;
+    left: 45px;
 }
 .img{
     width: 60px;
