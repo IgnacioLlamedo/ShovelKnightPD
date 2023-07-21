@@ -353,7 +353,7 @@ class Entidad{
                 baseDeDatosA.push(entidad.ataque);
             }
             for (i = 0; i < 7; i++){
-                let random = randomInc(0,2);
+                let random = randomInc(0,4);
                 arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], arrayY[i], baseDeDatosI[random], baseDeDatosA[random], i));
                 let elementoBloque =`
                 <img src="img/${arrayEntidad[i].imagen}" class="img" id="b${arrayEntidad[i].num}" style=" position: absolute; left: ${(arrayEntidad[i].x * 60) + 300}px; top: ${(arrayEntidad[i].y * 60) + 35}px;">`;

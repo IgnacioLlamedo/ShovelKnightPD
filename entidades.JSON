@@ -14,19 +14,19 @@
     {
         "vida": 2,
         "puntos": 200,
-        "imagen": "cuca.png",
+        "imagen": "SBeeto.webp",
         "ataque": 1
     },
     {
         "vida": 5,
         "puntos": 500,
-        "imagen": "skelly.webp",
+        "imagen": "SSkeleton.webp",
         "ataque": 2
     },
     {
         "vida": 1,
         "puntos": 0,
-        "imagen": "pocion.webp",
+        "imagen": "SPotion.webp",
         "ataque": -2
     }
 ]

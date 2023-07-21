@@ -68,6 +68,7 @@ body{
 }
 button{
     border-radius: 5px;
+    background-color: gainsboro;
 }
 .div1{
     margin-left: 50px;
@@ -76,4 +77,24 @@ button{
 .div3{
     margin-left: 50px;
     margin-top: 4px;
+}
+body{
+    background-color: grey;
+}
+figure{
+    display: flex;
+    padding-left: 60px;
+    align-items: center;
+    font-size: 20px;
+}
+figure .sprite{
+    padding-right: 10px;
+    width: 60px;
+}
+figure .hp{
+    width: 25px;
+}
+figure .at{
+    width: 25px;
+    padding: 10px;
 }
