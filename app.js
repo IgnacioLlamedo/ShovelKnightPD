@@ -1,6 +1,10 @@
 let i = Number;
 const arrayX = [];
 const arrayY = [];
+const baseDeDatosV = [];
+const baseDeDatosP = [];
+const baseDeDatosI = [];
+const baseDeDatosA = [];
 const arrayEntidad = [];
 const bloques = document.getElementById('bloques');
 let posV = 90;
@@ -72,6 +76,21 @@ class Entidad{
                     arrayEntidad[cualEntidad].vida -= 1;
                 }
                 if (arrayEntidad[cualEntidad].vida <= 0){
+                    if(arrayEntidad[cualEntidad].ataque < 0){
+                        vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
+                    if (vidaPersonaje > 5){
+                        vidaPersonaje = 5;
+                    }
+                    if(palaMejorada == true){
+                        hud.innerHTML =`
+                        <img src="img/hud2_${vidaPersonaje}.webp">`
+                    }
+                    else if(palaMejorada == false){
+                        hud.innerHTML =`
+                        <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    localStorage.setItem("vidaPersonaje", vidaPersonaje);
+                    }
                     let bloque = document.getElementById(`b${arrayEntidad[cualEntidad].num}`);
                     bloque.remove();
                     puntos = puntos + arrayEntidad[cualEntidad].puntos;
@@ -123,6 +142,21 @@ class Entidad{
                     arrayEntidad[cualEntidad].vida -= 1;
                 }
                 if (arrayEntidad[cualEntidad].vida <= 0){
+                    if(arrayEntidad[cualEntidad].ataque < 0){
+                        vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
+                    if (vidaPersonaje > 5){
+                        vidaPersonaje = 5;
+                    }
+                    if(palaMejorada == true){
+                        hud.innerHTML =`
+                        <img src="img/hud2_${vidaPersonaje}.webp">`
+                    }
+                    else if(palaMejorada == false){
+                        hud.innerHTML =`
+                        <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    localStorage.setItem("vidaPersonaje", vidaPersonaje);
+                    }
                     let bloque = document.getElementById(`b${arrayEntidad[cualEntidad].num}`);
                     bloque.remove();
                     puntos = puntos + arrayEntidad[cualEntidad].puntos;
@@ -176,6 +210,21 @@ class Entidad{
                     arrayEntidad[cualEntidad].vida -= 1;
                 }
                 if (arrayEntidad[cualEntidad].vida <= 0){
+                    if(arrayEntidad[cualEntidad].ataque < 0){
+                        vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
+                    if (vidaPersonaje > 5){
+                        vidaPersonaje = 5;
+                    }
+                    if(palaMejorada == true){
+                        hud.innerHTML =`
+                        <img src="img/hud2_${vidaPersonaje}.webp">`
+                    }
+                    else if(palaMejorada == false){
+                        hud.innerHTML =`
+                        <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    localStorage.setItem("vidaPersonaje", vidaPersonaje);
+                    }
                     let bloque = document.getElementById(`b${arrayEntidad[cualEntidad].num}`);
                     bloque.remove();
                     puntos = puntos + arrayEntidad[cualEntidad].puntos;
@@ -229,6 +278,21 @@ class Entidad{
                     arrayEntidad[cualEntidad].vida -= 1;
                 }
                 if (arrayEntidad[cualEntidad].vida <= 0){
+                    if(arrayEntidad[cualEntidad].ataque < 0){
+                        vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
+                    if (vidaPersonaje > 5){
+                        vidaPersonaje = 5;
+                    }
+                    if(palaMejorada == true){
+                        hud.innerHTML =`
+                        <img src="img/hud2_${vidaPersonaje}.webp">`
+                    }
+                    else if(palaMejorada == false){
+                        hud.innerHTML =`
+                        <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    localStorage.setItem("vidaPersonaje", vidaPersonaje);
+                    }
                     let bloque = document.getElementById(`b${arrayEntidad[cualEntidad].num}`);
                     bloque.remove();
                     puntos = puntos + arrayEntidad[cualEntidad].puntos;
@@ -261,7 +325,7 @@ class Entidad{
             }
         }
     }
-//Creación de los bloques de forma aleatoria
+//Creación de las entidades de forma aleatoria
     function randomInc(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -277,21 +341,25 @@ class Entidad{
         let random = randomInc(6,7);
         arrayY.push(random);
     }
-    for (i = 0; i < 7; i++){
-        let random = randomInc(1,3);
-        if(random == 1){
-            arrayEntidad.push(new Entidad(1, 50, arrayX[i], arrayY[i], "tierra.webp", 0, i));
-        }
-        else if(random == 2){
-            arrayEntidad.push(new Entidad(3, 100, arrayX[i], arrayY[i], "piedra.webp", 0, i));
-        }
-        else if(random == 3){
-            arrayEntidad.push(new Entidad(2, 200, arrayX[i], arrayY[i], "cuca.png", 1, i));
-        }
-        let elementoBloque =`
-        <img src="img/${arrayEntidad[i].imagen}" class="img" id="b${arrayEntidad[i].num}" style="left: ${(arrayEntidad[i].x * 60) + 300}px; top: ${(arrayEntidad[i].y * 60) + 35}px;">`;
-        bloques.innerHTML += elementoBloque;
-    }
+        // Base de datos en JSON
+        let bool = true
+        fetch("entidades.JSON")
+        .then((Response) => Response.json())
+        .then((entidades) => {
+            for (const entidad of entidades){
+                baseDeDatosV.push(entidad.vida);
+                baseDeDatosP.push(entidad.puntos);
+                baseDeDatosI.push(entidad.imagen);
+                baseDeDatosA.push(entidad.ataque);
+            }
+            for (i = 0; i < 7; i++){
+                let random = randomInc(0,2);
+                arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], arrayY[i], baseDeDatosI[random], baseDeDatosA[random], i));
+                let elementoBloque =`
+                <img src="img/${arrayEntidad[i].imagen}" class="img" id="b${arrayEntidad[i].num}" style=" position: absolute; left: ${(arrayEntidad[i].x * 60) + 300}px; top: ${(arrayEntidad[i].y * 60) + 35}px;">`;
+                bloques.innerHTML += elementoBloque;
+            }
+        })
 //Evento recargar storage
     let recargar = document.getElementById("recargar");
     function reiniciarStorage(){
