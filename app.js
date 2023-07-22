@@ -96,6 +96,17 @@ class Entidad{
                     localStorage.setItem("puntos", puntos);
                     puntosDiv.innerText = puntos;
                     arrayEntidad.splice(cualEntidad, 1);
+                    if(arrayEntidad.length == 0){
+                        Swal.fire({
+                            title: "Level Clear!",
+                            icon: "success",
+                            confirmButtonText: "Next Level"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                location.reload();
+                            }
+                        })
+                    }
                 }
                 else if (arrayEntidad[cualEntidad].vida > 0){
                     vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
@@ -177,6 +188,17 @@ class Entidad{
                     localStorage.setItem("puntos", puntos);
                     puntosDiv.innerText = puntos;
                     arrayEntidad.splice(cualEntidad, 1);
+                    if(arrayEntidad.length == 0){
+                        Swal.fire({
+                            title: "Level Clear!",
+                            icon: "success",
+                            confirmButtonText: "Next Level"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                location.reload();
+                            }
+                        })
+                    }
                 }
                 else if (arrayEntidad[cualEntidad].vida > 0){
                     vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
@@ -260,6 +282,17 @@ class Entidad{
                     localStorage.setItem("puntos", puntos);
                     puntosDiv.innerText = puntos;
                     arrayEntidad.splice(cualEntidad, 1);
+                    if(arrayEntidad.length == 0){
+                        Swal.fire({
+                            title: "Level Clear!",
+                            icon: "success",
+                            confirmButtonText: "Next Level"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                location.reload();
+                            }
+                        })
+                    }
                 }
                 else if (arrayEntidad[cualEntidad].vida > 0){
                     vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
@@ -343,6 +376,17 @@ class Entidad{
                     localStorage.setItem("puntos", puntos);
                     puntosDiv.innerText = puntos;
                     arrayEntidad.splice(cualEntidad, 1);
+                    if(arrayEntidad.length == 0){
+                        Swal.fire({
+                            title: "Level Clear!",
+                            icon: "success",
+                            confirmButtonText: "Next Level"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                location.reload();
+                            }
+                        })
+                    }
                 }
                 else if (arrayEntidad[cualEntidad].vida > 0){
                     vidaPersonaje = vidaPersonaje - (arrayEntidad[cualEntidad].ataque);
@@ -514,7 +558,7 @@ class Entidad{
     flechas.addEventListener("keyup", tecla)
 //Evento para mejorar la pala
     function mejorarPala(){
-        if (puntos >= 600){
+        if (puntos >= 800){
             mejorar.remove();
             palaMejorada = true;
             localStorage.setItem("palaMejorada", palaMejorada);
