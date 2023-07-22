@@ -98,3 +98,6 @@ figure .at{
     width: 25px;
     padding: 10px;
 }
+figure p{
+    padding-right: 10px;
+}

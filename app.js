@@ -1,6 +1,5 @@
 let i = Number;
-const arrayX = [];
-const arrayY = [];
+let arrayX = [];
 const baseDeDatosV = [];
 const baseDeDatosP = [];
 const baseDeDatosI = [];
@@ -70,7 +69,7 @@ class Entidad{
 //Si hay bloque, ataca
             if ((hayEntidad == true) & (cualEntidad != -1)){
                 if (palaMejorada == true){
-                    arrayEntidad[cualEntidad].vida -= 3;
+                    arrayEntidad[cualEntidad].vida -= 2;
                 }
                 else{
                     arrayEntidad[cualEntidad].vida -= 1;
@@ -103,6 +102,9 @@ class Entidad{
                     if (vidaPersonaje > 5){
                         vidaPersonaje = 5;
                     }
+                    if (vidaPersonaje < 0){
+                        vidaPersonaje = 0;
+                    }
                     if(palaMejorada == true){
                         hud.innerHTML =`
                         <img src="img/hud2_${vidaPersonaje}.webp">`
@@ -110,6 +112,18 @@ class Entidad{
                     else if(palaMejorada == false){
                         hud.innerHTML =`
                         <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    if(vidaPersonaje <= 0){
+                        Swal.fire({
+                            title: "Game Over",
+                            icon: "error",
+                            confirmButtonText: "Restart"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                reiniciarStorage();
+                                location.reload();
+                            }
+                        })
                     }
                     localStorage.setItem("vidaPersonaje", vidaPersonaje);
                 }
@@ -136,7 +150,7 @@ class Entidad{
 //Si hay bloque, ataca
             if ((hayEntidad == true) & (cualEntidad != -1)){
                 if (palaMejorada == true){
-                    arrayEntidad[cualEntidad].vida -= 3;
+                    arrayEntidad[cualEntidad].vida -= 2;
                 }
                 else{
                     arrayEntidad[cualEntidad].vida -= 1;
@@ -169,6 +183,9 @@ class Entidad{
                     if (vidaPersonaje > 5){
                         vidaPersonaje = 5;
                     }
+                    if (vidaPersonaje < 0){
+                        vidaPersonaje = 0;
+                    }
                     if(palaMejorada == true){
                         hud.innerHTML =`
                         <img src="img/hud2_${vidaPersonaje}.webp">`
@@ -176,6 +193,18 @@ class Entidad{
                     else if(palaMejorada == false){
                         hud.innerHTML =`
                         <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    if(vidaPersonaje <= 0){
+                        Swal.fire({
+                            title: "Game Over",
+                            icon: "error",
+                            confirmButtonText: "Restart"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                reiniciarStorage();
+                                location.reload();
+                            }
+                        })
                     }
                 }
                 localStorage.setItem("vidaPersonaje", vidaPersonaje);
@@ -204,7 +233,7 @@ class Entidad{
 //Si hay bloque, ataca
             if ((hayEntidad == true) & (cualEntidad != -1)){
                 if (palaMejorada == true){
-                    arrayEntidad[cualEntidad].vida -= 3;
+                    arrayEntidad[cualEntidad].vida -= 2;
                 }
                 else{
                     arrayEntidad[cualEntidad].vida -= 1;
@@ -237,6 +266,9 @@ class Entidad{
                     if (vidaPersonaje > 5){
                         vidaPersonaje = 5;
                     }
+                    if (vidaPersonaje < 0){
+                        vidaPersonaje = 0;
+                    }
                     if(palaMejorada == true){
                         hud.innerHTML =`
                         <img src="img/hud2_${vidaPersonaje}.webp">`
@@ -244,6 +276,18 @@ class Entidad{
                     else if(palaMejorada == false){
                         hud.innerHTML =`
                         <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    if(vidaPersonaje <= 0){
+                        Swal.fire({
+                            title: "Game Over",
+                            icon: "error",
+                            confirmButtonText: "Restart"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                reiniciarStorage();
+                                location.reload();
+                            }
+                        })
                     }
                 }
                 localStorage.setItem("vidaPersonaje", vidaPersonaje);
@@ -272,7 +316,7 @@ class Entidad{
 //Si hay bloque, ataca
             if ((hayEntidad == true) & (cualEntidad != -1)){
                 if (palaMejorada == true){
-                    arrayEntidad[cualEntidad].vida -= 3;
+                    arrayEntidad[cualEntidad].vida -= 2;
                 }
                 else{
                     arrayEntidad[cualEntidad].vida -= 1;
@@ -305,6 +349,9 @@ class Entidad{
                     if (vidaPersonaje > 5){
                         vidaPersonaje = 5;
                     }
+                    if (vidaPersonaje < 0){
+                        vidaPersonaje = 0;
+                    }
                     if(palaMejorada == true){
                         hud.innerHTML =`
                         <img src="img/hud2_${vidaPersonaje}.webp">`
@@ -312,6 +359,18 @@ class Entidad{
                     else if(palaMejorada == false){
                         hud.innerHTML =`
                         <img src="img/hud1_${vidaPersonaje}.webp">`
+                    }
+                    if(vidaPersonaje <= 0){
+                        Swal.fire({
+                            title: "Game Over",
+                            icon: "error",
+                            confirmButtonText: "Restart"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                reiniciarStorage();
+                                location.reload();
+                            }
+                        })
                     }
                 }
                 localStorage.setItem("vidaPersonaje", vidaPersonaje);
@@ -337,12 +396,7 @@ class Entidad{
             arrayX.push(random);
         }
     }
-    while (arrayY.length < 7){
-        let random = randomInc(6,7);
-        arrayY.push(random);
-    }
-        // Base de datos en JSON
-        let bool = true
+    // Base de datos en JSON
         fetch("entidades.JSON")
         .then((Response) => Response.json())
         .then((entidades) => {
@@ -353,10 +407,83 @@ class Entidad{
                 baseDeDatosA.push(entidad.ataque);
             }
             for (i = 0; i < 7; i++){
-                let random = randomInc(0,4);
-                arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], arrayY[i], baseDeDatosI[random], baseDeDatosA[random], i));
+                let random = randomInc(1,21);
+                if((random >= 1) & (random <= 5)){
+                    random = 0;
+                }
+                else if((random >= 6) & (random <= 8)){
+                    random = 1;
+                }
+                else if((random >= 9) & (random <= 13)){
+                    random = 2;
+                }
+                else if((random >= 14) & (random <= 16)){
+                    random = 3;
+                }
+                else if((random >= 17) & (random <= 21)){
+                    random = 4;
+                }
+                arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], 7, baseDeDatosI[random], baseDeDatosA[random], i));
                 let elementoBloque =`
                 <img src="img/${arrayEntidad[i].imagen}" class="img" id="b${arrayEntidad[i].num}" style=" position: absolute; left: ${(arrayEntidad[i].x * 60) + 300}px; top: ${(arrayEntidad[i].y * 60) + 35}px;">`;
+                bloques.innerHTML += elementoBloque;
+            }
+            arrayX = [];
+            while (arrayX.length < 7){
+                let random = randomInc(1,7);
+                if(!arrayX.includes(random)){
+                    arrayX.push(random);
+                }
+            }
+            for (i = 0; i < 7; i++){
+                let random = randomInc(1,21);
+                if((random >= 1) & (random <= 5)){
+                    random = 0;
+                }
+                else if((random >= 6) & (random <= 8)){
+                    random = 1;
+                }
+                else if((random >= 9) & (random <= 13)){
+                    random = 2;
+                }
+                else if((random >= 14) & (random <= 15)){
+                    random = 3;
+                }
+                else if((random >= 16) & (random <= 21)){
+                    random = 4;
+                }
+                arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], 6, baseDeDatosI[random], baseDeDatosA[random], i + 7));
+                let elementoBloque =`
+                <img src="img/${arrayEntidad[i + 7].imagen}" class="img" id="b${arrayEntidad[i + 7].num}" style=" position: absolute; left: ${(arrayEntidad[i + 7].x * 60) + 300}px; top: ${(arrayEntidad[i + 7].y * 60) + 35}px;">`;
+                bloques.innerHTML += elementoBloque;
+            }
+            arrayX = [];
+            while (arrayX.length < 7){
+                let random = randomInc(1,7);
+                if(!arrayX.includes(random)){
+                    arrayX.push(random);
+                }
+            }
+            for (i = 0; i < 7; i++){
+                let random = randomInc(1,21);
+                if((random >= 1) & (random <= 5)){
+                    random = 0;
+                }
+                else if((random >= 6) & (random <= 8)){
+                    random = 1;
+                }
+                else if((random >= 9) & (random <= 13)){
+                    random = 2;
+                }
+                else if((random >= 14) & (random <= 15)){
+                    random = 3;
+                }
+                else if((random >= 16) & (random <= 21)){
+                    random = 4;
+                }
+                arrayEntidad.push(new Entidad(baseDeDatosV[random], baseDeDatosP[random], arrayX[i], 5, baseDeDatosI[random], baseDeDatosA[random], i + 14));
+                let elementoBloque =`
+                <img src="img/${arrayEntidad[i + 14].imagen}" class="img" id="b${arrayEntidad[i + 14].num}" style=" position: absolute; left: ${(arrayEntidad[i + 14].x * 60) + 300}px; top: ${(arrayEntidad[i + 14].y * 60) + 35}px;">`;
                 bloques.innerHTML += elementoBloque;
             }
         })
